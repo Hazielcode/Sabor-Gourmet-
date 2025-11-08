@@ -52,17 +52,16 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/login.html", "/login", "/css/**", "/js/**", "/img/**", "/static/**"
+                                "/login.html", "/css/**", "/js/**", "/img/**"
                         ).permitAll()
-                        .requestMatchers("/", "/clientes/**", "/mesas/**", "/bitacora/**").hasAnyRole("ADMIN", "MOZO")
+                        .requestMatchers("/", "/clientes.html", "/mesas.html", "/bitacora.html", "/api/**")
+                        .hasAnyRole("ADMIN", "MOZO")
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
-                        .loginPage("/login.html")  // 👈 apunta a tu archivo estático
+                        .loginPage("/login.html") // ✅ archivo estático
                         .loginProcessingUrl("/login")
-                        .usernameParameter("username")
-                        .passwordParameter("password")
-                        .defaultSuccessUrl("/index.html", true) // 👈 redirige al front estático
+                        .defaultSuccessUrl("/", true)
                         .failureUrl("/login.html?error=true")
                         .permitAll()
                 )
@@ -70,11 +69,9 @@ public class SecurityConfig {
                         .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                         .logoutSuccessUrl("/login.html?logout=true")
                         .invalidateHttpSession(true)
-                        .clearAuthentication(true)
                         .deleteCookies("JSESSIONID")
                         .permitAll()
-                )
-                .httpBasic(httpBasic -> {});
+                );
         return http.build();
     }
 }
