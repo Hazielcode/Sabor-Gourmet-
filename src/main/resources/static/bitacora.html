@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitácora | Sabor Gourmet</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- 🔝 NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-gradient shadow-sm">
+    <div class="container-fluid px-4">
+        <a class="navbar-brand" href="index.html">
+            <i class="bi bi-egg-fried me-2 text-warning"></i> Sabor Gourmet
+        </a>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a href="clientes.html" class="nav-link">Clientes</a></li>
+            <li class="nav-item"><a href="mesas.html" class="nav-link">Mesas</a></li>
+            <li class="nav-item"><a href="bitacora.html" class="nav-link active">Bitácora</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- 💡 CONTENIDO -->
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+        <h2 class="fw-bold text-secondary mb-3 mb-md-0">
+            <i class="bi bi-journal-text me-2"></i> Registro de Actividades
+        </h2>
+        <button id="btnRecargar" class="btn btn-outline-secondary fw-semibold shadow-sm">
+            <i class="bi bi-arrow-clockwise me-1"></i> Recargar
+        </button>
+    </div>
+
+    <!-- TABLA -->
+    <div class="table-responsive">
+        <table class="table table-hover align-middle shadow-sm" id="tabla-bitacora">
+            <thead class="table-secondary text-center">
+            <tr>
+                <th>ID</th>
+                <th>Fecha / Hora</th>
+                <th>Acción</th>
+                <th>Entidad</th>
+                <th>Usuario</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!-- Se llenará dinámicamente -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- ⚡ FOOTER -->
+<footer class="mt-5 py-3 bg-dark text-white text-center">
+    © 2025 Sabor Gourmet — Sistema de Gestión Gastronómica 🧑‍🍳
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/bitacora.js"></script>
+</body>
+</html>
